@@ -1,22 +1,33 @@
-import {useContext} from "react";
-import {ThemeContext} from "../context/ThemeContext.tsx";
-
+import styled from 'styled-components'
 export const Header = () => {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error('Header must be used within a ThemeProvider');
-  }
-  const { theme, toggleTheme } = context;
   return (
-      <header style={{
-        padding: '20px',
-        background: theme === 'light' ? '#f0f0f0' : '#333',
-        color: theme === 'light' ? '#000' : '#fff'
-      }}>
-        <h1>Context API</h1>
-        <button onClick={toggleTheme} style={{padding: '10px 20px', marginTop: '10px'}}>
-          {theme === 'light' ? 'Dark' : 'Light'} Mode
-        </button>
-      </header>
+      <HeaderStyle>
+        <div>
+          <h1>🌝 LOGO 🌚</h1>
+          <p>nav</p>
+        </div>
+      </HeaderStyle>
   )
 }
+
+const HeaderStyle = styled.header`
+    border-bottom: 1px solid #D1D4D6;
+    transition: all 0.5s ease;
+    background-color: ${(props) => props.theme.bgColor};
+    padding: 0 30px;
+    > div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: transparent;
+        height: 60px;
+        h1{
+            color: ${(props) => props.theme.textColor};
+            font-size: 20px; 
+        }
+        p{
+            color: ${(props) => props.theme.textColor};
+            font-size: 16px;
+        }
+    }
+`

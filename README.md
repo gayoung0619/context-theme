@@ -1,50 +1,10 @@
-# React + TypeScript + Vite
+# 🚀 리액트의 Context API 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 소개  
+React의 Context API는 컴포넌트 트리 전체에 걸쳐 데이터를 효율적으로 전달할 수 있는 방법을 제공합니다. 
+이를 통해 Props Drilling 문제를 해결하고 애플리케이션의 상태관리를 보다 용이하게 할 수 있지만 값이 변경될 때마다 해당 Context를 사용하는 모든 컴포넌트가 불필요한 리렌더링을 일으켜 웹사이트의 성능을 저하시킵니다.
 
-Currently, two official plugins are available:
+## 🎯 목표  
+Context API를 사용한 dark/light모드의 미니 프로젝트를 통해 이를 테스트하고 개선하는 방안을 마련
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## 🛠️ 결과

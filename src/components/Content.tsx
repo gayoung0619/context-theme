@@ -14,9 +14,7 @@ export const Content = () => {
         <h1>Hello! Welcome to my website!</h1>
         <p>Current mode is {themeMode === 'dark' ? '🌚' : '🌝'}</p>
         <span>{currentTime}</span>
-        <ToggleButton toggle={toggleTheme} mode={themeMode}>
-          DarkMode
-        </ToggleButton>
+        <ToggleButton toggle={toggleTheme} mode={themeMode}/>
       </Wrapper>
   )
 }

@@ -12,7 +12,7 @@ export const ToggleButton = ({toggle, mode}: ToggleButtonProps) => {
       </ToggleWrapper>
   )
 }
-const ToggleWrapper = styled.button`
+const ToggleWrapper = styled.button<{ mode: Theme }>`
     cursor: pointer;
     position: fixed;
     z-index: 999999;

@@ -6,8 +6,13 @@ React의 Context API는 컴포넌트 트리 전체에 걸쳐 데이터를 효율
 
 ## 🎯 설명
 - context API를 사용한 미니 프로젝트를 통해 이를 테스트하고 개선하는 방안을 마련
-- context에 다크/라이트모드, setInterval을통해 1초마다 시간을 받아오는 함수를 작성해 의도적으로 사이트에 리렌더링을 시켰습니다
-- 시간이 계속 업데이트되면서 시간 부분만 리렌더링되면 되는데 현재는 전체 컴포넌트가 리렌더링되고 있습니다(하단 이미지 확인)
-- <image src="./src/assets/readme/개선전.jpg" width="350px" />
+- 2개의 context API
+  - ThemeContext (다크/라이트모드)
+  - TimeContext (타이머, 메세지)
+- 여기서, 2번째 api인 타이머에 각각 타이머와 메세지 두가지 상태를 담은상태로 컴포넌트를 분리시킴. 문제는 타이머컴포넌트만 리렌더링 되면 되는데 같은 context api를 공유하는 메세지컴포넌트도 같이 리렌더링 되는 문제를 발견할 수 있음 (이게 context api의 단점!!!!!!)'
+- (contextAPI 사용)
+<image src="./src/assets/readme/context.jpg" width="350px" />
+- (zustand 사용)
+<image src="./src/assets/readme/zustand.jpg" width="350px" />
 
 

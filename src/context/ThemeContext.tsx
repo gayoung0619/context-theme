@@ -1,4 +1,4 @@
-import { createContext, useState, ReactNode } from "react";
+import {createContext, useState, ReactNode, useMemo} from "react";
 import { darkTheme, lightTheme } from "../theme/theme";
 import { ThemeProvider as StyledProvider } from "styled-components";
 
@@ -16,11 +16,11 @@ interface ThemeProviderProps {
 export const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const [themeMode, setThemeMode] = useState<Theme>("light");
-  const themeObject = () => (themeMode === "light" ? lightTheme : darkTheme)
 
   const toggleTheme = () => {
     setThemeMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
   }
+  const themeObject = useMemo(() => (themeMode === "light" ? lightTheme : darkTheme), [themeMode]);
 
   return (
       <ThemeContext.Provider value={{ themeMode, toggleTheme }}>

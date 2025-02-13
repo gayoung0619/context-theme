@@ -1,19 +1,34 @@
-import { createContext, useState, useEffect, ReactNode } from "react";
+import {
+  createContext,
+  useState,
+  useEffect,
+  ReactNode,
+  useCallback,
+  useMemo,
+} from "react";
+
 interface TimeContextType {
   currentTime: string;
+  message: string;
 }
 
 interface TimeProviderProps {
   children: ReactNode;
 }
 
-export const TimeContext = createContext<TimeContextType | undefined>(undefined)
-export const TimeProvider = ({children}: TimeProviderProps) => {
-  const [currentTime, setCurrentTime] = useState<string>(new Date().toLocaleTimeString());
+export const TimeContext = createContext<TimeContextType | undefined>(
+  undefined
+);
 
-  const updateTime = () => {
+export const TimeProvider = ({ children }: TimeProviderProps) => {
+  const [currentTime, setCurrentTime] = useState<string>(
+    new Date().toLocaleTimeString()
+  );
+  const [message, setMessage] = useState<string>("시간이 너무 빨리간다!!!!");
+
+  const updateTime = useCallback(() => {
     setCurrentTime(new Date().toLocaleTimeString());
-  }
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(updateTime, 1000);
@@ -21,8 +36,8 @@ export const TimeProvider = ({children}: TimeProviderProps) => {
   }, [updateTime]);
 
   return (
-      <TimeContext.Provider value={{ currentTime }}>
-        {children}
-      </TimeContext.Provider>
-  )
-}
+    <TimeContext.Provider value={{ currentTime, message }}>
+      {children}
+    </TimeContext.Provider>
+  );
+};

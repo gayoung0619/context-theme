@@ -8,7 +8,6 @@ React의 Context API는 컴포넌트 트리 전체에 걸쳐 데이터를 효율
 - context API를 사용한 미니 프로젝트를 통해 이를 테스트하고 개선하는 방안을 마련
 - context에 다크/라이트모드, setInterval을통해 1초마다 시간을 받아오는 함수를 작성해 의도적으로 사이트에 리렌더링을 시켰습니다
 - 시간이 계속 업데이트되면서 전체 컴포넌트가 리렌더링되고 있습니다(하단 이미지 확인)
+  <image src="./src/assets/readme/개선전.jpg" width="350px" />
 
-## 🛠️ 결과
-<image src="./src/assets/readme/개선전.jpg" />
 

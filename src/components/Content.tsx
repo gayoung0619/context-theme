@@ -2,12 +2,17 @@ import styled from 'styled-components'
 import { useContext } from 'react';
 import { ThemeContext } from '../context/ThemeContext';
 import {ToggleButton} from "./ToggleButton.tsx";
+import {TimeContext} from "../context/TimeContext.tsx";
 export const Content = () => {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error('Content must be used within a ThemeProvider');
+  const themeContext = useContext(ThemeContext);
+  const timeContext = useContext(TimeContext);
+
+  if (!themeContext || !timeContext) {
+    return <div>Error: Please wrap Content with ThemeProvider and TimeProvider.</div>;
   }
-  const { themeMode, toggleTheme, currentTime } = context;
+
+  const { themeMode, toggleTheme } = themeContext;
+  const { currentTime } = timeContext;
 
   return (
       <Wrapper>

@@ -24,11 +24,16 @@ export const TimeProvider = ({ children }: TimeProviderProps) => {
   const [currentTime, setCurrentTime] = useState<string>(
     new Date().toLocaleTimeString()
   );
+
   const [message, setMessage] = useState<string>("시간이 너무 빨리간다!!!!");
 
-  const updateTime = useCallback(() => {
+  const memo = useMemo(() => {
+    return {currentTime, message}
+  }, [currentTime, message]);
+
+  const updateTime = () => {
     setCurrentTime(new Date().toLocaleTimeString());
-  }, []);
+  }
 
   useEffect(() => {
     const interval = setInterval(updateTime, 1000);
@@ -36,7 +41,7 @@ export const TimeProvider = ({ children }: TimeProviderProps) => {
   }, [updateTime]);
 
   return (
-    <TimeContext.Provider value={{ currentTime, message }}>
+    <TimeContext.Provider value={memo}>
       {children}
     </TimeContext.Provider>
   );

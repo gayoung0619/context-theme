@@ -5,6 +5,8 @@ const Message = () => {
   const messageContext = useContext(TimeContext);
   const { message } = messageContext;
 
+  console.log("message")
+
   return <div>{message}</div>;
 };
 

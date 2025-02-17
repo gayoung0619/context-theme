@@ -3,13 +3,10 @@ import {
   useState,
   useEffect,
   ReactNode,
-  useCallback,
-  useMemo,
 } from "react";
 
 interface TimeContextType {
   currentTime: string;
-  message: string;
 }
 
 interface TimeProviderProps {
@@ -25,23 +22,13 @@ export const TimeProvider = ({ children }: TimeProviderProps) => {
     new Date().toLocaleTimeString()
   );
 
-  const [message, setMessage] = useState<string>("시간이 너무 빨리간다!!!!");
-
-  const memo = useMemo(() => {
-    return {currentTime, message}
-  }, [currentTime, message]);
 
   const updateTime = () => {
     setCurrentTime(new Date().toLocaleTimeString());
   }
 
-  useEffect(() => {
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
-  }, [updateTime]);
-
   return (
-    <TimeContext.Provider value={memo}>
+    <TimeContext.Provider value={{currentTime, updateTime}}>
       {children}
     </TimeContext.Provider>
   );

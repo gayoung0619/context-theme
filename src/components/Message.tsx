@@ -1,13 +1,11 @@
-import { useContext } from "react";
-import { TimeContext } from "../context/TimeContext";
+import React, { useContext } from "react";
+import {MessageContext} from "../context/MessageContext.tsx";
 
 const Message = () => {
-  const messageContext = useContext(TimeContext);
-  const { message } = messageContext;
-
-  console.log("message")
+  const messageContext = useContext(MessageContext);
+  const message = messageContext;
 
   return <div>{message}</div>;
 };
 
-export default Message;
+export default Message

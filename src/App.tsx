@@ -4,15 +4,18 @@ import {Header} from "./components/Header.tsx";
 import {Content} from "./components/Content.tsx";
 import styled from "styled-components";
 import {TimeProvider} from "./context/TimeContext.tsx";
+import {MessageProvider} from "./context/MessageContext.tsx";
 
 function App() {
   return (
     <ThemeProvider>
       <TimeProvider>
+        <MessageProvider>
         <Wrapper>
           <Header />
           <Content />
         </Wrapper>
+        </MessageProvider>
       </TimeProvider>
     </ThemeProvider>
   )
